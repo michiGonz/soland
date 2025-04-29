@@ -24,6 +24,7 @@ def navbar() -> rx.Component:
             spacing="2",
         ),
         style=styles.NAVBAR_STYLE,  # Aplicar estilos desde styles.py
+        width="100%",
     )
 
 

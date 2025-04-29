@@ -37,9 +37,10 @@ GLOBAL_STYLE = {
 # Estilos generales
 NAVBAR_STYLE = {
     "padding": "1rem",
-    "background_color": "gray.800",
+    "background_image": "linear-gradient(to right, yellow, black)",  # Degradado de amarillo a negro
     "color": "white",
     "display": "flex",
+    "width": "100%",
     "justify_content": "space-between",  # Ajusta los elementos en la barra
 }
 

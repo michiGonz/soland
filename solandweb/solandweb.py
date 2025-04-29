@@ -21,17 +21,17 @@ def index() -> rx.Component:
             rx.vstack(
                 navbar(),         
                 width="100%", 
-                max_width="100%",
                 margin_y=Size.BIG.value
             ),
         ),
           rx.center(
             rx.vstack(
-                hero_section(),         
+                hero_section(),
+                about_section(),         
                 width="100%", 
                 height="50vh",
                 margin_y=Size.BIG.value
-            ),
+            ),  
         ),
     )
 
