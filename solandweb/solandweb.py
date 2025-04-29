@@ -26,12 +26,19 @@ def index() -> rx.Component:
         ),
           rx.center(
             rx.vstack(
-                hero_section(),
-                about_section(),         
+                hero_section(),         
                 width="100%", 
                 height="50vh",
                 margin_y=Size.BIG.value
             ),  
+        ),
+          rx.center(
+            rx.vstack(
+                about_section(),         
+                width="100%", 
+                heigth="60vh",
+                margin_y=Size.BIG.value
+            ),
         ),
     )
 
