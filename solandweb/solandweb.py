@@ -8,6 +8,7 @@ from solandweb.views.header.header import about_section
 from solandweb.views.header.header import services_section
 from solandweb.views.header.header import contact_section
 from solandweb.views.header.header import footer
+from solandweb.views.header.header import map_section
 
 
     
@@ -15,31 +16,11 @@ class State(rx.State):
     pass
 
 def index() -> rx.Component:
-    
-    return rx.box(
-        rx.center(
-            rx.vstack(
-                navbar(),         
-                width="100%", 
-                margin_y=Size.BIG.value
-            ),
-        ),
-          rx.center(
-            rx.vstack(
-                hero_section(),         
-                width="100%", 
-                height="50vh",
-                margin_y=Size.BIG.value
-            ),  
-        ),
-          rx.center(
-            rx.vstack(
-                about_section(),         
-                width="100%", 
-                heigth="60vh",
-                margin_y=Size.BIG.value
-            ),
-        ),
+    return rx.container(
+        navbar(),
+        hero_section(),
+        width="100%",
+        style=styles.GLOBAL_STYLE,
     )
 
 app = rx.App(

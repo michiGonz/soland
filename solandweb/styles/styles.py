@@ -1,8 +1,8 @@
 # Estilos globales
 import reflex as rx
 from enum import Enum
-from .fonts import Font as Font
-from .colors import Color as Color
+from solandweb.styles.fonts import Font
+from solandweb.styles.colors import Color as Color
 
 # Base style
 STYLESHEETS = []
@@ -19,84 +19,237 @@ class Size(Enum):
     BIG = "5"
 
 STYLESHEETS =[
-    "https://fonts.googleapis.com/css?family=Roboto:wght@300&display=swap"
+    "https://fontsgoogleapiscom/css?family=Roboto:wght@300&display=swap"
 ]
 
-BASE_STYLE ={
+BASE_STYLE =  {
     "font_family": Font.DEFAULT.value, #fuente general
     "background_color": Color.BACKGROUND.value, #color de fondo general
     "scroll_behavior": "smooth",  # Habilita el desplazamiento suave
 }
 
-GLOBAL_STYLE = {
+GLOBAL_STYLE =  {
     "margin": "0",  # Eliminar margen externo
     "padding": "0",  # Eliminar relleno externo
-    "box_sizing": "border-box",  # Asegurar que el tamaño incluya bordes y relleno
 }
 
 # Estilos generales
-NAVBAR_STYLE = {
-    "padding": "1rem",
-    "background_image": "linear-gradient(to right, yellow, black)",  # Degradado de amarillo a negro
-    "color": "white",
+
+navbar = {
     "display": "flex",
+    "justify_content": "space_between",
+    "align_items": "center",
+    "padding": "1rem",
+    "background": "linear_gradient(to right, yellow, black)",
+    "color": "white",
     "width": "100%",
-    "justify_content": "space-between",  # Ajusta los elementos en la barra
+}
+
+logo = {
+    "font_size": "18em",
+    "font_weight": "bold",
+    "color": "yellow",
+}
+
+contact_info = {
+    "display": "flex",
+    "gap": "15px",
+    "font_size": "09em",
+    "color": "#aaa",
+}
+
+menu = {
+    "display": "flex",
+    "gap": "20px",
+}
+
+menu_item = {
+    "font_size": "1em",
+    "cursor": "pointer",
+    "transition": "0.3s",
+}
+
+social_media = {
+    "display": "flex",
+    "gap": "10px",
+}
+social_icon = {
+    "font_size": "12em",
+    "cursor": "pointer",
+}
+language_selector = {
+    "font_size": "1em",
+    "background_color": "#444",
+    "padding": "5px 10px",
+    "border_radius": "5px",
+}
+search_icon = {
+    "font_size": "15em",
+    "cursor": "pointer",
 }
 
 
-HERO_STYLE = {
+HERO_STYLE =  {
     "height": "100vh",
     "display": "flex",
     "align_items": "center",
     "justify_content": "center",
-    "width": "100%",
-    "background_image": "url('/header.png')",
+    "background_image": "url('/header.png')",  # Imagen de fondo
     "background_size": "cover",
     "background_position": "center",
-    "margin_bottom": "2rem",
-    "background_repeat": "no-repeat",
-    "color": "white",
-    "id": "inicio",
-    "flex": "1",  # Ocupa proporcionalmente el mismo espacio
+    "color": "black",
+    "text_align": "center",
 }
 
-ABOUT_STYLE = {
+SERVICES_STYLE =  {
     "padding": "4rem",
-    "background_image": "url('/imagen2.jpg')",
+    "display": "flex",
+    "justify_content": "space_around",
+    "background_color": "#f9f9f9",
+}
+
+CONTACT_STYLE =  {
+    "padding": "4rem",
+    "background_color": "#f1f1f1",
+    "text_align": "center",
+}
+
+FOOTER_STYLE =  {
+    "padding": "2rem",
+    "background_color": "#333",
+    "color": "white",
+    "text_align": "center",
+}
+
+ABOUT_STYLE =  {
+    "padding": "4rem",
+    "background_image": "url('/imagen2jpg')",
     "background_size": "cover",
     "background_position": "center",
-    "background_repeat": "no-repeat",
+    "background_repeat": "no_repeat",
     "color": "white",
-    "id": "sobre-mi",
+    "id": "sobre_mi",
     "flex": "1",
 }
 
-SERVICES_STYLE = {
+
+
+sobre_mi =  {
     "padding": "4rem",
-    "background_image": "url('/imagen1.jpg')",
-    "background_size": "cover",
+    "background_image":" url('/imagen2jpg')",
+    "background_size":"cover",
     "background_position": "center",
-    "background_repeat": "no-repeat",
+    "background_repeat": "no_repeat",
     "color": "white",
-    "id": "servicios",
-    "flex": "1",
+    "display": "flex",
+    "flex_direction": "column",
+    "align_items": "center",
+    "text_align": "center",
 }
 
-CONTACT_STYLE = {
-    "padding": "4rem",
-    "background_image": "url('/imagen3.jpg')",
-    "background_size": "cover",
-    "background_position": "center",
-    "background_repeat": "no-repeat",
-    "color": "white",
-    "id": "contacto",
-    "flex": "1",
+
+sobre_mih1 =  {
+    "font_size": "25em",
+    "font_weight": "bold",
+    "color": "#fff",
+    "margin_bottom": "10px",
 }
 
-FOOTER_STYLE = {
+
+subtitle =  {
+    "font_size":"12em",
+    "color": "#ddd",
+    "margin_bottom": "30px",
+}
+
+
+about_container =  {
+    "display": "flex",
+    "justify_content": "space_between",
+    "gap": "20px",
+    "width": "80%",
+}
+
+
+about_box =  {
+    "background_color": "white",
+    "padding": "20px",
+    "width": "30%",
+    "border_radius": "10px",
+    "box_shadow": "2px 2px 10px rgba(0, 0, 0, 01)",
+    "text_align": "left",
+    "color": "#333",
+}
+
+
+about_box =  {
+    "font_size": "15em",
+    "font_weight": "bold",
+    "color": "#222",
+    "margin_bottom": "10px",
+}
+
+
+about_boxp =  {
+    "font_size": "1em",
+    "color": "#666",
+}
+
+
+button =  {
+    "display": "inline_block",
+    "background_color": "#007bff",
+    "color": "white",
+    "padding": "10px 15px",
+    "margin_top": "15px",
+    "text_decoration": "none",
+    "border_radius": "5px",
+    "transition": "03s",
+}
+
+menu = {
+    "display": "flex",
+    "gap": "20px",
+    "justify_content": "center",
+}
+
+menu_item = {
+    "font_size": "1em",
+    "cursor": "pointer",
+    "transition": "0.3s",
+}
+
+navbar_top = {
+    "display": "flex",
+    "justify_content": "space-between",
+    "align_items": "center",
     "padding": "1rem",
-    "background_color": "gray.800",
-    "color": "white",
-    "text_align": "center",  # Centra el contenido del pie de página
 }
+
+navbar = {
+    "width": "100%",
+    "background_color": "#fff",
+}
+
+contact_info = {
+    "display": "flex",
+    "justify_content": "space-between",
+    "align_items": "center",
+    "background_color": "#f8f8f8",
+    "padding": "0.5rem 1rem",
+    "font_size": "0.9em",
+    "color": "#555",
+    "width": "100%",  # Ocupa todo el ancho de la página
+    "margin": "0",  # Elimina el margen exterior
+}
+
+contact_item = {
+    "margin_right": "1rem",  # Espaciado entre los elementos
+    "display": "flex",
+    "align_items": "center",
+}
+
+
+
+
+

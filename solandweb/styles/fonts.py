@@ -7,3 +7,4 @@ class Font(Enum):
     CONTENT = "Arial, sans-serif"
     TEXT = "Times New Roman, serif"
     MONOSPACE = "Courier New, monospace"
+    SERIF = "Georgia, serif"

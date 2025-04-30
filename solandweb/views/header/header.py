@@ -5,64 +5,118 @@ import solandweb.styles.styles as styles
 
 class State(rx.State):
     """The app state."""
-    pass
+    search_query: str = ""  # Estado para almacenar el término de búsqueda
+
+    @rx.var
+    def filtered_results(self) -> str:  # Agregada la anotación de tipo
+        # Aquí puedes implementar la lógica para filtrar resultados según el término de búsqueda
+        return f"Resultados para: {self.search_query}" if self.search_query else "Sin resultados"
+
+    def set_search_query(self, query: str):
+        """Actualiza el término de búsqueda."""
+        self.search_query = query
+
+    def handle_search(self):
+        """Maneja el evento de búsqueda."""
+        print(f"Buscando: {self.search_query}")  # Puedes reemplazar esto con lógica adicional
 
 
-def navbar() -> rx.Component:
-    """Navigation bar."""
-    return rx.box(
-        rx.hstack(
-            rx.image(src="/logo.jpeg", alt="Logo", width="50px", height="50px"),  # Logo desde static
-            rx.text("MiWeb", font_size="3", font_weight="bold"),
-            rx.spacer(),
-            rx.hstack(
-                rx.link("Inicio", href="#inicio", padding="1rem"),
-                rx.link("Sobre mí", href="#sobre-mi", padding="1rem"),
-                rx.link("Servicios", href="#servicios", padding="1rem"),
-                rx.link("Contacto", href="#contacto", padding="1rem"),
-            ),
-            spacing="2",
+def navbar():
+    return rx.vstack(  # Apila los elementos verticalmente
+      rx.hstack(
+            rx.text("📞 1-800-405-377", class_name="contact_item"),
+            rx.text("✉ info@company.com", class_name="contact_item"),
+            rx.text("📍 Collins Street 8007, USA", class_name="contact_item"),
+            rx.text("📅 Mon - Sat: 8.00 - 19:00", class_name="contact_item"),
+            justify="between",  # Distribuye los elementos con espacio entre ellos
+            width="100%",  # Ocupa todo el ancho del contenedor
+            style={
+                "background_color": "#f8f8f8",  # Fondo gris claro
+                "padding": "0.5rem 1rem",  # Espaciado interno
+                "font_size": "0.9em",  # Tamaño de fuente más pequeño
+                "color": "#555",  # Color de texto gris oscuro
+                "width": "100%",  # Ocupa todo el ancho de la página
+            },
+            class_name="contact_info",
         ),
-        style=styles.NAVBAR_STYLE,  # Aplicar estilos desde styles.py
-        width="100%",
+        rx.hstack(  # Contenedor para el menú y la barra de búsqueda
+            rx.text("Home", class_name="menu_item"),
+            rx.text("Pages", class_name="menu_item"),
+            rx.text("Portfolio", class_name="menu_item"),
+            rx.text("Blog", class_name="menu_item"),
+            rx.text("Elements", class_name="menu_item"),
+            rx.hstack(  # Contenedor para la barra de búsqueda
+                rx.input(
+                    placeholder="Buscar...",
+                    on_change=State.set_search_query,  # Actualiza el estado al escribir
+                    class_name="search_input",
+                ),
+                rx.button(
+                    "🔍",
+                    on_click=State.handle_search,  # Llama a la función de búsqueda
+                    class_name="search_button",
+                ),
+                spacing="1",
+            ),
+            justify="between",  # Distribuye los elementos a lo largo del ancho
+            width="100%",  # Ocupa todo el ancho de la página
+            style={"background_color": "#f0f0f0", "padding": "1rem"},  # Contenedor gris
+        ),
+        class_name="navbar",
     )
-
-
+    
 def hero_section() -> rx.Component:
     """Hero section."""
     return rx.box(
         rx.vstack(
-            rx.heading("Bienvenido a Soland CA", size="3"),
-            rx.text("Tu solución moderna para páginas web profesionales.", size="2"),
+            rx.heading("Bienvenido a Soland CA", size="6"),
+            rx.text("Tu solución moderna para páginas web profesionales.", size="4"),
             rx.button("Contáctanos", href="#contacto", color_scheme="teal"),
             spacing="2",
             align_items="center",
         ),
         style=styles.HERO_STYLE,
         id="inicio",  # Añadir ID para el enlace de navegación
-    )
+    ),
 
 
-def about_section() -> rx.Component:
-    """About section."""
+def about_section()-> rx.Component:
     return rx.box(
-        rx.vstack(
-            rx.heading("Sobre mí", size="3"),
-            rx.text("Somos un equipo dedicado a crear experiencias digitales únicas y modernas."),
-            spacing="3",
-            align_items="center",
+        rx.text("Solutions", class_name="title"),
+        rx.text("Helping you build better, faster, and smarter.", class_name="subtitle"),
+        rx.hstack(
+            # Primera columna: Meet Us
+            rx.box(
+                rx.text("Meet Us", class_name="box-title"),
+                rx.text("Get to know our team and what drives us.", class_name="box-text"),
+                rx.button("Read more", class_name="button"),
+                class_name="about_box",
+            ),
+            # Segunda columna: Solutions
+            rx.box(
+                rx.text("Solutions", class_name="box-title"),
+                rx.text("Explore the innovative solutions we offer.", class_name="box-text"),
+                rx.button("Read more", class_name="button"),
+                class_name="about_box",
+            ),
+            # Tercera columna: Benefits
+            rx.box(
+                rx.text("Benefits", class_name="box-title"),
+                rx.text("Discover how we bring value to you.", class_name="box-text"),
+                rx.button("Read more", class_name="button"),
+                class_name="about_box",
+            ),
+            justify="between",
+            class_name="about_container",
         ),
-        style=styles.ABOUT_STYLE,  # Aplicar estilos desde styles.py    
-        id="sobre-mi",  # Añadir ID para el enlace de navegación
-        
-    )
-
-
+        id="sobre_mi"
+    ),
+    
 def services_section() -> rx.Component:
     """Services section."""
     return rx.box(
         rx.vstack(
-            rx.heading("Servicios", size="3"),
+            rx.heading("Nuestros Servicios", size="4"),
             rx.hstack(
                 rx.box(
                     rx.icon("laptop", size=3),
@@ -70,15 +124,13 @@ def services_section() -> rx.Component:
                     rx.text("Diseñamos y desarrollamos sitios web personalizados."),
                     align_items="center",
                     text_align="center",
-                    padding="1rem",
                 ),
                 rx.box(
-                    rx.icon("file", size=3),  # Cambiado de "mobile" a "file"
+                    rx.icon("phone", size=3),
                     rx.text("Diseño Responsivo"),
                     rx.text("Tu sitio web se verá genial en cualquier dispositivo."),
                     align_items="center",
                     text_align="center",
-                    padding="1rem",
                 ),
                 rx.box(
                     rx.icon("search", size=3),
@@ -86,23 +138,19 @@ def services_section() -> rx.Component:
                     rx.text("Optimización para motores de búsqueda."),
                     align_items="center",
                     text_align="center",
-                    padding="1rem",
                 ),
-                spacing="0",
+                spacing="2",
             ),
-            spacing="0",
-            align_items="center",
+            spacing="2",
         ),
-        style=styles.SERVICES_STYLE,  # Aplicar estilos desde styles.py
-        id="servicios",  # Añadir ID para el enlace de navegación
+        style=styles.SERVICES_STYLE,
     )
-
 
 def contact_section() -> rx.Component:
     """Contact section."""
     return rx.box(
         rx.vstack(
-            rx.heading("Contacto", size="4"),
+            rx.heading("Contáctanos", size="4"),
             rx.form(
                 rx.input(placeholder="Tu nombre", name="nombre", required=True),
                 rx.input(placeholder="Tu correo", type="email", name="email", required=True),
@@ -111,13 +159,19 @@ def contact_section() -> rx.Component:
                 spacing="1",
             ),
             spacing="2",
-            align_items="center",
         ),
-        style=styles.CONTACT_STYLE,  # Aplicar estilos desde styles.py
-        id="contacto",  # Añadir ID para el enlace de navegación
+        style=styles.CONTACT_STYLE,
     )
 
-
+def map_section() -> rx.Component:
+    """Map section."""
+    return rx.box(
+        rx.html(
+            '<iframe src="https://www.google.com/maps/embed?..." width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>'
+        ),
+        style={"margin": "2rem 0"},
+    )
+    
 def footer() -> rx.Component:
     """Footer section."""
     return rx.box(
