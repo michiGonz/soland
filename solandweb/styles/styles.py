@@ -94,7 +94,7 @@ HERO_STYLE =  {
     "display": "flex",
     "align_items": "center",
     "justify_content": "center",
-    "background_image": "url('/header.png')",  # Imagen de fondo
+    "background_image": "url('/header.jpg')",  # Imagen de fondo
     "background_size": "cover",
     "background_position": "center",
     "color": "black",
