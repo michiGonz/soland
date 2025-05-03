@@ -148,7 +148,7 @@ about_section = {
 }
 
 about_image = {
-    "width": "80%",  # Reduce el tamaño de las imágenes
+    "width": "20%",  # Reduce el tamaño de las imágenes
     "border_radius": "8px",
     "margin_bottom": "1rem",
 }

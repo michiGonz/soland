@@ -1,7 +1,6 @@
 import reflex as rx
 from rxconfig import config
-
-import solandweb.styles.styles as styles 
+import solandweb.styles.styles as styles
 
 class State(rx.State):
     """The app state."""
@@ -95,7 +94,7 @@ def about_section() -> rx.Component:
                 rx.text("Green building", class_name="about-box-title"),
                 rx.text(
                     "Interdum iusto pulvinar consequuntur augue optio, repellat fuga! Purus expedita fusce temporibus eso.",
-                    class_name="about-box-text",
+                    class_name="about_box_text",
                 ),
                 rx.button("Take a look", class_name="about-button"),
                 class_name="about-box",
@@ -133,7 +132,7 @@ def about_section() -> rx.Component:
             ),
             template_columns="repeat(2, 1fr)",  # Dos columnas
             gap="2rem",  # Espaciado entre elementos
-            class_name="about_grid",
+            class_name="about-grid",
         ),
         id="about",
         class_name="about-section",
