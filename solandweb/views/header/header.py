@@ -80,7 +80,65 @@ def hero_section() -> rx.Component:
     ),
 
 
-def about_section()-> rx.Component:
+def about_section() -> rx.Component:
+    """About section."""
+    return rx.box(
+        rx.text("What we have to offer for your next business and career success", class_name="about-title"),
+        rx.text(
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis aute irure dolor in reprehenderit.",
+            class_name="about-subtitle",
+        ),
+        rx.grid(
+            # Primera fila
+            rx.box(
+                rx.image(src="/imagen1.jpg", class_name="about-image"),
+                rx.text("Green building", class_name="about-box-title"),
+                rx.text(
+                    "Interdum iusto pulvinar consequuntur augue optio, repellat fuga! Purus expedita fusce temporibus eso.",
+                    class_name="about-box-text",
+                ),
+                rx.button("Take a look", class_name="about-button"),
+                class_name="about-box",
+            ),
+            rx.box(
+                rx.image(src="/imagen1.jpg", class_name="about-image"),
+                rx.text("Interior design", class_name="about-box-title"),
+                rx.text(
+                    "Interdum iusto pulvinar consequuntur augue optio, repellat fuga! Purus expedita fusce temporibus eso.",
+                    class_name="about-box-text",
+                ),
+                rx.button("Take a look", class_name="about-button"),
+                class_name="about-box",
+            ),
+            # Segunda fila
+            rx.box(
+                rx.image(src="/imagen1.jpg", class_name="about-image"),
+                rx.text("Expert team", class_name="about-box-title"),
+                rx.text(
+                    "Interdum iusto pulvinar consequuntur augue optio, repellat fuga! Purus expedita fusce temporibus eso.",
+                    class_name="about-box-text",
+                ),
+                rx.button("Take a look", class_name="about-button"),
+                class_name="about-box",
+            ),
+            rx.box(
+                rx.image(src="/imagen1.jpg", class_name="about-image"),
+                rx.text("Family plans", class_name="about-box-title"),
+                rx.text(
+                    "Interdum iusto pulvinar consequuntur augue optio, repellat fuga! Purus expedita fusce temporibus eso.",
+                    class_name="about-box-text",
+                ),
+                rx.button("Take a look", class_name="about-button"),
+                class_name="about-box",
+            ),
+            template_columns="repeat(2, 1fr)",  # Dos columnas
+            gap="2rem",  # Espaciado entre elementos
+            class_name="about_grid",
+        ),
+        id="about",
+        class_name="about-section",
+    )
+    
     return rx.box(
         rx.text("Solutions", class_name="title"),
         rx.text("Helping you build better, faster, and smarter.", class_name="subtitle"),

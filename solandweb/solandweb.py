@@ -19,6 +19,7 @@ def index() -> rx.Component:
     return rx.container(
         navbar(),
         hero_section(),
+        about_section(),
         width="100%",
         style=styles.GLOBAL_STYLE,
     )

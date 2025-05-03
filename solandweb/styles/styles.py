@@ -121,18 +121,72 @@ FOOTER_STYLE =  {
     "text_align": "center",
 }
 
-ABOUT_STYLE =  {
-    "padding": "4rem",
-    "background_image": "url('/imagen2jpg')",
-    "background_size": "cover",
-    "background_position": "center",
-    "background_repeat": "no_repeat",
-    "color": "white",
-    "id": "sobre_mi",
-    "flex": "1",
+
+about_title = {
+    "font_size": "2rem",
+    "font_weight": "bold",
+    "margin_bottom": "1rem",
+    "text_align": "center",
 }
 
+about_subtitle = {
+    "font_size": "1.2rem",
+    "color": "#666",
+    "margin_bottom": "2rem",
+    "text_align": "center",
+}
 
+about_grid = {
+    "display": "grid",
+    "grid_template_columns": "repeat(2, 1fr)",
+    "gap": "2rem",
+}
+
+about_section = {
+    "padding": "2rem",
+    "background_color": "#ffeb3b",  # Fondo amarillo
+}
+
+about_image = {
+    "width": "80%",  # Reduce el tamaño de las imágenes
+    "border_radius": "8px",
+    "margin_bottom": "1rem",
+}
+
+about_box = {
+    "text_align": "center",
+    "padding": "1rem",
+    "border": "1px solid #ddd",
+    "border_radius": "8px",
+    "box_shadow": "0 4px 6px rgba(0, 0, 0, 0.1)",
+    "background_color": "#fff",  # Fondo blanco para las cajas
+}
+
+about_box_title = {
+    "font_size": "1.5rem",
+    "font_weight": "bold",
+    "margin_bottom": "0.5rem",
+}
+
+about_box_text = {
+    "font_size": "1rem",
+    "color": "#666",
+    "margin_bottom": "1rem",
+}
+
+about_button = {
+    "background_color": "#ffc107",
+    "color": "#fff",
+    "padding": "0.5rem 1rem",
+    "border": "none",
+    "border_radius": "4px",
+    "cursor": "pointer",
+    "transition": "background-color 0.3s",
+}
+
+about_button_hover = {
+    "background_color": "#e0a800",
+}
 
 sobre_mi =  {
     "padding": "4rem",
