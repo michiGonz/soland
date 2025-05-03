@@ -1,6 +1,7 @@
 import reflex as rx
 from rxconfig import config
 import solandweb.styles.styles as styles
+from solandweb.styles.styles import Size as Size
 
 class State(rx.State):
     """The app state."""
